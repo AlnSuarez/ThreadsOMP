@@ -5,11 +5,13 @@ double paso;
 #define NUM_THREADS 1
 
 void main() 
-{
+{   
+    //Variable para el numero de threads
     int i, nthreads;
     double pi, sum[NUM_THREADS], t1, t2, tiempo; 
     paso = 1.0 / num_pasos; 
 
+    //seteas el numero de threads
     omp_set_num_threads(NUM_THREADS);
 
     const double startTime = omp_get_wtime();
@@ -31,7 +33,7 @@ void main()
             sum[id] += 4.0 / (1.0 + x*x);
         }
 
-        printf("ID Thread [%d]  |  Value [%f]\n", id, sum[id]);
+        printf("ID Thread %d  Value %f \n", id, sum[id]);
     }
 
     for (i=0, pi = 0.0; i < nthreads; i++)
@@ -44,6 +46,6 @@ void main()
     
     printf("NUM_THREADS = (%d)\n", NUM_THREADS);
     printf("num pasos = (%d)\n", num_pasos);
-    printf("pi = (%lf)\n", pi);
-    printf("tomo (%lf) segundos\n", tiempo);
+    printf("pi = %lf\n", pi);
+    printf("tomo %lf segundos\n", tiempo);
 }
