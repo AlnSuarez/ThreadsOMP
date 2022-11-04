@@ -48,7 +48,6 @@ void flipVertical()
   printf("largo img %li\n", alto);
   printf("ancho img %li\n", ancho);
 
-  unsigned char threshold = 100;
 
   // Guardar imagen en una matriz
   unsigned char mat[ancho * 3][alto];
